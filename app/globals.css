@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html,
-bocy,
+body,
 :root {
   height: 100%;
 }
