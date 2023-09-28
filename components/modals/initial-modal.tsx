@@ -1,6 +1,11 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import axios from 'axios'
+import { useForm } from 'react-hook-form'
+import * as z from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 import FileUpload from '@/components/file-upload'
 import { Button } from '@/components/ui/button'
 import {
@@ -20,9 +25,6 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-import * as z from 'zod'
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -35,6 +37,7 @@ const formSchema = z.object({
 
 export const InitialModal = () => {
   const [isMounted, setIsMounted] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
     setIsMounted(true)
@@ -51,7 +54,14 @@ export const InitialModal = () => {
   const isLoading = form.formState.isSubmitting
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(values)
+    try {
+      await axios.post('/api/servers', values)
+      form.reset()
+      router.refresh()
+      window.location.reload()
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   if (!isMounted) {

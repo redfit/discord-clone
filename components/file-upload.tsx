@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import { buttonVariants } from '@/components/ui/button'
 import { UploadDropzone } from '@/lib/uploadthings'
 import '@uploadthing/react/styles.css'
 import { X } from 'lucide-react'

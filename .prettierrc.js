@@ -6,10 +6,10 @@ module.exports = {
   importOrder: [
     '^(react/(.*)$)|^(react$)',
     '^(next/(.*)$)|^(next$)',
-    '<THIRD_PARTY_MODULES>',
-    '',
     '^types$',
-    '^@local/(.*)$',
+    '<THIRD_PARTY_MODULES>',
+    '^[a-z](.*)$',
+    '^@(?!/)(.*)$',
     '^@/config/(.*)$',
     '^@/lib/(.*)$',
     '^@/components/(.*)$',
