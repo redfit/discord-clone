@@ -6,7 +6,7 @@ import axios from 'axios'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import FileUpload from '@/components/file-upload'
+import { FileUpload } from '@/components/file-upload'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,

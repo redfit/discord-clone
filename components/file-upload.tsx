@@ -1,9 +1,9 @@
 'use client'
 
 import Image from 'next/image'
-import { UploadDropzone } from '@/lib/uploadthings'
-import '@uploadthing/react/styles.css'
 import { X } from 'lucide-react'
+import '@uploadthing/react/styles.css'
+import { UploadDropzone } from '@/lib/uploadthings'
 
 interface FileUploadProps {
   onChange: (url?: string) => void
@@ -11,7 +11,7 @@ interface FileUploadProps {
   endpoint: 'messageFile' | 'serverImage'
 }
 
-const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
+export const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
   const fileType = value?.split('.').pop()
 
   if (value && fileType !== 'pdf') {
@@ -43,5 +43,3 @@ const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
     </>
   )
 }
-
-export default FileUpload
