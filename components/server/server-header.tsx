@@ -1,5 +1,7 @@
 'use client'
 
+import { MemberRole } from '@prisma/client'
+
 import { ServerWithMembersWithProfiles } from '@/types'
 
 import {
@@ -11,8 +13,6 @@ import {
   UserPlus,
   Users,
 } from 'lucide-react'
-
-import { MemberRole } from '@prisma/client'
 
 import {
   DropdownMenu,

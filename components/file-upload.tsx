@@ -1,8 +1,11 @@
 'use client'
 
 import Image from 'next/image'
-import { X } from 'lucide-react'
+
 import '@uploadthing/react/styles.css'
+
+import { X } from 'lucide-react'
+
 import { UploadDropzone } from '@/lib/uploadthings'
 
 interface FileUploadProps {
@@ -30,16 +33,14 @@ export const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
   }
 
   return (
-    <>
-      <UploadDropzone
-        endpoint={endpoint}
-        onClientUploadComplete={(res) => {
-          onChange(res?.[0].url)
-        }}
-        onUploadError={(error: Error) => {
-          console.log(error)
-        }}
-      />
-    </>
+    <UploadDropzone
+      endpoint={endpoint}
+      onClientUploadComplete={(res) => {
+        onChange(res?.[0].url)
+      }}
+      onUploadError={(error: Error) => {
+        console.log(error)
+      }}
+    />
   )
 }

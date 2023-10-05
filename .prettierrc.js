@@ -15,6 +15,7 @@ module.exports = {
     '^@/hooks/(.*)$',
     '^@/components/(.*)$',
     '^@/styles/(.*)$',
+    '^@/(.*).css$',
     '^[./]',
   ],
   importOrderSeparation: true,
